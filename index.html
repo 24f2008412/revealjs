@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Quarterly Earnings Presentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- RevealJS -->
+    <link rel="stylesheet" href="reveal/dist/reveal.css">
+    <link rel="stylesheet" href="reveal/dist/theme/black.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- Code highlighting -->
+    <link rel="stylesheet" href="reveal/plugin/highlight/monokai.css">
+
+</head>
+<body>
+
+<div class="reveal">
+<div class="slides">
+
+    <!-- Load slides from Markdown -->
+    <section data-markdown="slides.md"
+             data-separator="^---$"
+             data-separator-vertical="^--$"
+             data-separator-notes="^Note:">
+    </section>
+
+</div>
+</div>
+
+<script src="reveal/dist/reveal.js"></script>
+<script src="reveal/plugin/markdown/markdown.js"></script>
+<script src="reveal/plugin/highlight/highlight.js"></script>
+<script src="reveal/plugin/math/math.js"></script>
+<script src="reveal/plugin/notes/notes.js"></script>
+
+<script>
+    Reveal.initialize({
+        hash: true,
+        plugins: [ RevealMarkdown, RevealHighlight, RevealMath, RevealNotes ]
+    });
+</script>
+
+</body>
+</html>
