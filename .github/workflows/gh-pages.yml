@@ -1,0 +1,26 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node (optional, only if you need to build)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # If you have a static site (single index.html), no build step is needed.
+      # If you use npm build (e.g., create-reveal-app), add the build steps here.
+
+      - name: Deploy to Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./          # change to ./docs or ./build if necessary
