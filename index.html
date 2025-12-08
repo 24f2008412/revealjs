@@ -1,41 +1,200 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quarterly Earnings — RevealJS</title>
 
-		<title>reveal.js</title>
+  <!-- RevealJS core CSS & theme (CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css" id="theme">
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+  <!-- Highlight.js for code highlighting -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/default.min.css">
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Prepared by: 24f2008412@ds.study.iitm.ac.in</section>
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
-		</div>
+  <style>
+    /* Custom styling */
+    .reveal { font-family: "Inter", "Arial", sans-serif; }
+    .chart { height: 420px; margin: 12px auto; max-width: 1000px; }
+    .contact { font-size: 0.95rem; opacity: 0.9; }
+    /* Dark-bg sample */
+    section.has-dark-background { background: #1f2937; color: #fff; }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
+      <!-- Title slide -->
+      <section>
+        <h1>Quarterly Earnings Report</h1>
+        <h3>Q4 — Financial Institution</h3>
+        <p class="contact">Contact: <a href="mailto:24f2008412@ds.study.iitm.ac.in">24f2008412@ds.study.iitm.ac.in</a></p>
+        <aside class="notes">
+          Open with a short summary: revenue, guidance, and a few highlights.
+        </aside>
+      </section>
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
+      <!-- Markdown slide (uses RevealMarkdown plugin) -->
+      <section data-markdown>
+        <textarea data-template>
+## Executive Summary
+
+- Revenue up **8%** YoY
+- Net income improved due to efficiency gains
+- Guidance: cautious optimism for next quarter
+
+---
+
+## Key Takeaways
+
+1. Cost optimization initiatives are starting to show impact.
+2. Client acquisition improved by 12%.
+3. Risk metrics remain within tolerance.
+
+_Questions welcome at 24f2008412@ds.study.iitm.ac.in_
+        </textarea>
+        <aside class="notes">
+          Read each bullet, mention the top 2 metrics, then invite questions.
+        </aside>
+      </section>
+
+      <!-- Fragment animations -->
+      <section>
+        <h2>Highlights (Animated)</h2>
+        <ul>
+          <li class="fragment">Revenue: ₹X bn — up 8% YoY</li>
+          <li class="fragment">Net Income: ₹Y bn — margin expansion</li>
+          <li class="fragment fade-up">Operating Expenses down 4%</li>
+        </ul>
+        <aside class="notes">
+          Pause on each fragment to expand: what's behind revenue growth, margin drivers.
+        </aside>
+      </section>
+
+      <!-- Code sample with syntax highlighting and line numbers -->
+      <section>
+        <h2>Example: Data Processing Snippet</h2>
+        <pre><code class="python" data-trim data-noescape>
+# Calculate YoY growth
+import pandas as pd
+
+df = pd.read_csv('financials_q.csv')
+df['revenue_yoy'] = df['revenue'].pct_change(periods=4) * 100
+print(df[['quarter', 'revenue', 'revenue_yoy']].tail())
+        </code></pre>
+        <aside class="notes">
+          Point out how the data pipeline produces the numbers we show on the next slide.
+        </aside>
+      </section>
+
+      <!-- Math (financial formula) -->
+      <section>
+        <h2>Financial Formula</h2>
+        <p>Present value of free cash flows (discounted cash flow):</p>
+        <p>
+          \[
+            \text{PV} = \sum_{t=1}^{N} \frac{FCF_t}{(1 + r)^t}
+          \]
+        </p>
+        <p>Where \(FCF_t\) = free cash flow at time \(t\) and \(r\) = discount rate.</p>
+        <aside class="notes">
+          Use this slide to explain valuation assumptions and sensitivity to discount rate.
+        </aside>
+      </section>
+
+      <!-- Simple interactive chart container (fill with D3/Plot in js) -->
+      <section id="chart-slide">
+        <h2>Revenue Trend</h2>
+        <div id="chart" class="chart fragment"></div>
+        <aside class="notes">
+          Show the actual chart; describe seasonality and one or two drivers for recent spikes/dips.
+        </aside>
+      </section>
+
+      <!-- Live demo iframe (lazy loaded) -->
+      <section>
+        <h2>Live Demo / Dashboard</h2>
+        <iframe data-src="https://example.com/your-dashboard" data-preload style="width:100%;height:600px;border:0"></iframe>
+        <aside class="notes">
+          This iframe shows a live dashboard. Mention data refresh cadence and where the data comes from.
+        </aside>
+      </section>
+
+      <!-- Closing slide with contact -->
+      <section class="has-dark-background">
+        <h2>Thank you</h2>
+        <p>Questions & follow-up: <a href="mailto:24f2008412@ds.study.iitm.ac.in" style="color:inherit">24f2008412@ds.study.iitm.ac.in</a></p>
+        <p>Published with RevealJS • Speaker notes available (press 'S')</p>
+        <aside class="notes">
+          Close with next steps & invite stakeholders to the detailed appendix.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js and plugins (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/markdown/markdown.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/math/math.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
+
+  <!-- D3 (optional for chart demo) -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+
+  <script>
+    Reveal.initialize({
+      width: 1280,
+      height: 720,
+      margin: 0.04,
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      transition: 'slide',
+      plugins: [ RevealMarkdown, RevealHighlight, RevealMath, RevealNotes ]
+    });
+
+    // Example: small D3 demo to populate the chart container when the slide is shown
+    const demoData = [
+      { q: '2023-Q1', revenue: 80 },
+      { q: '2023-Q2', revenue: 84 },
+      { q: '2023-Q3', revenue: 92 },
+      { q: '2023-Q4', revenue: 99 },
+      { q: '2024-Q1', revenue: 105 },
+      { q: '2024-Q2', revenue: 110 }
+    ];
+
+    function drawChart(data) {
+      const container = document.getElementById('chart');
+      container.innerHTML = ''; // clear
+      const w = container.clientWidth || 900;
+      const h = container.clientHeight || 420;
+      const svg = d3.select(container).append('svg').attr('viewBox', `0 0 ${w} ${h}`).attr('preserveAspectRatio','xMidYMid meet');
+
+      const margin = { top: 30, right: 20, bottom: 40, left: 60 };
+      const x = d3.scaleBand().domain(data.map(d => d.q)).range([margin.left, w - margin.right]).padding(0.2);
+      const y = d3.scaleLinear().domain([0, d3.max(data, d => d.revenue) * 1.2]).nice().range([h - margin.bottom, margin.top]);
+
+      svg.append('g').selectAll('rect')
+        .data(data).join('rect')
+        .attr('x', d => x(d.q))
+        .attr('y', d => y(d.revenue))
+        .attr('height', d => y(0) - y(d.revenue))
+        .attr('width', x.bandwidth())
+        .attr('class', 'fragment');
+
+      svg.append('g').attr('transform', `translate(0,${h - margin.bottom})`).call(d3.axisBottom(x));
+      svg.append('g').attr('transform', `translate(${margin.left},0)`).call(d3.axisLeft(y));
+    }
+
+    Reveal.addEventListener('slidechanged', function(event) {
+      if (event.currentSlide.id === 'chart-slide') {
+        drawChart(demoData);
+      }
+    });
+  </script>
+</body>
 </html>
